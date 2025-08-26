@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us — CareBridge</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    body {font-family: Inter, sans-serif; margin:0; padding:0; background:#0f172a; color:#e2e8f0;}
+    .container{max-width:900px; margin:0 auto; padding:20px;}
+    h1{font-size:32px; margin-bottom:10px;}
+    p{color:#cbd5e1; line-height:1.6;}
+    nav a{color:#94a3b8; margin-right:12px; text-decoration:none;}
+    nav a:hover{color:white;}
+    form{background:#111827; padding:20px; border-radius:12px; border:1px solid #334155; box-shadow:0 4px 12px rgba(0,0,0,.3);}
+    label{display:block; margin-top:12px; color:#f59e0b;}
+    input, textarea{width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #334155; background:#1e293b; color:#e2e8f0;}
+    input:focus, textarea:focus{outline:none; border-color:#38bdf8;}
+    button{margin-top:16px; padding:12px 20px; background:#38bdf8; color:#0f172a; border:none; border-radius:8px; cursor:pointer; font-weight:600;}
+    button:hover{background:#0ea5e9;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">← Back Home</a>
+    </nav>
+
+    <h1>Contact Us</h1>
+    <p>If you have questions, feedback, or need support, please reach out using the form below or email us directly at 
+       <a href="mailto:support@carebridge.org" style="color:#38bdf8;">support@carebridge.org</a>.</p>
+
+    <form action="#" method="post">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>

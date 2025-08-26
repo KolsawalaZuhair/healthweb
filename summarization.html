@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report Summarizer — CareBridge</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    body {font-family: Inter, sans-serif; margin:0; padding:0; background:#0f172a; color:#e2e8f0;}
+    .container{max-width:800px; margin:0 auto; padding:20px;}
+    h1{font-size:28px; margin-bottom:10px;}
+    p{color:#94a3b8;}
+    form{background:#111827; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.4); margin:20px 0;}
+    textarea{width:100%; min-height:150px; border:1px solid #334155; background:#0b1229; color:#e2e8f0; padding:10px; border-radius:8px;}
+    input[type=file]{margin:12px 0; color:#e2e8f0;}
+    button{background:#6366f1; color:white; border:none; padding:10px 16px; border-radius:10px; cursor:pointer;}
+    button:hover{background:#5457ee;}
+    .output{background:#0b1229; border:1px solid #334155; border-radius:12px; padding:18px; margin-top:20px;}
+    nav a{color:#94a3b8; margin-right:12px; text-decoration:none;}
+    nav a:hover{color:white;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">← Back Home</a>
+    </nav>
+    <h1>Medical Report Summarization</h1>
+    <p>Upload a medical report (PDF) or paste the text below. The backend will return a plain-English summary.</p>
+
+    <form id="summarizeForm" method="POST" enctype="multipart/form-data" action="/api/summarize">
+      <label for="reportText">Paste report text:</label>
+      <textarea id="reportText" name="reportText" placeholder="Paste your medical report text here..."></textarea>
+      <br>
+      <label for="reportFile">Or upload PDF:</label><br>
+      <input type="file" id="reportFile" name="reportFile" accept="application/pdf">
+      <br><br>
+      <button type="submit">Summarize</button>
+    </form>
+
+    <div class="output" id="outputPanel" hidden>
+      <h2>Summary</h2>
+      <p id="summaryText">The summary will appear here...</p>
+    </div>
+  </div>
+
+  <script>
+    // Demo: Intercept form to display fake result
+    const form = document.getElementById('summarizeForm');
+    const output = document.getElementById('outputPanel');
+    const summary = document.getElementById('summaryText');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      summary.textContent = "[Demo] Summary of report goes here once backend is connected.";
+      output.hidden = false;
+    });
+  </script>
+</body>
+</html>

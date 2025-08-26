@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wellness Advice — CareBridge</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    body {font-family: Inter, sans-serif; margin:0; padding:0; background:#0f172a; color:#e2e8f0;}
+    .container{max-width:800px; margin:0 auto; padding:20px;}
+    h1{font-size:28px; margin-bottom:10px;}
+    p{color:#94a3b8;}
+    form{background:#111827; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.4); margin:20px 0;}
+    textarea{width:100%; min-height:100px; border:1px solid #334155; background:#0b1229; color:#e2e8f0; padding:10px; border-radius:8px;}
+    button{background:#f59e0b; color:white; border:none; padding:10px 16px; border-radius:10px; cursor:pointer;}
+    button:hover{background:#d97706;}
+    .output{background:#0b1229; border:1px solid #334155; border-radius:12px; padding:18px; margin-top:20px;}
+    nav a{color:#94a3b8; margin-right:12px; text-decoration:none;}
+    nav a:hover{color:white;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">← Back Home</a>
+    </nav>
+    <h1>Wellness Advice Generator</h1>
+    <p>Enter your daily routine or habits, and get simple suggestions to improve your wellness.</p>
+
+    <form id="wellnessForm" method="POST" action="/api/wellness">
+      <label for="routine">Describe your routine:</label>
+      <textarea id="routine" name="routine" placeholder="e.g., I sleep 5 hours, skip breakfast, spend 10 hours on screens"></textarea>
+      <br><br>
+      <button type="submit">Get Advice</button>
+    </form>
+
+    <div class="output" id="outputPanel" hidden>
+      <h2>Wellness Suggestions</h2>
+      <ul id="adviceList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('wellnessForm');
+    const output = document.getElementById('outputPanel');
+    const list = document.getElementById('adviceList');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      list.innerHTML = '';
+      const demo = [
+        "Try to increase sleep to 7-8 hours.",
+        "Eat a balanced breakfast to maintain energy.",
+        "Take short breaks from screen every hour."
+      ];
+      demo.forEach(advice => {
+        const li = document.createElement('li');
+        li.textContent = advice;
+        list.appendChild(li);
+      });
+      output.hidden = false;
+    });
+  </script>
+</body>
+</html>
